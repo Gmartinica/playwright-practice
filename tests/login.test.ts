@@ -15,4 +15,13 @@ test("Login test demo", async () => {
     await page.fill("input[name='email']", "test@gmail.com");
     await page.fill("input[name='password']", "password");
     await page.click("input[value='Login']");
+
+    await page.waitForTimeout(2000);
+
+    const page1 = await context.newPage();
+    await page1.goto(
+        "https://ecommerce-playground.lambdatest.io/index.php?route=account/account"
+    );
+
+    await page.waitForTimeout(2000);
 });
