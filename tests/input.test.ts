@@ -29,3 +29,16 @@ test("Sum", async ({ page }) => {
     const sumResult = page.locator("#addmessage");
     await expect(sumResult).toContainText(`${result}`);
 });
+
+test("Checkbox", async ({ page }) => {
+    await page.goto(
+        "https://www.lambdatest.com/selenium-playground/checkbox-demo"
+    );
+    const checkboxLocator = page.locator("#isAgeSelected");
+
+    await expect(checkboxLocator).not.toBeChecked();
+    await checkboxLocator.check();
+    await expect(checkboxLocator).toBeChecked();
+
+
+});
